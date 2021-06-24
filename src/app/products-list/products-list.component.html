@@ -1,0 +1,19 @@
+<h1>Lista de Productos</h1>
+<table class="table">
+    <thead class="table-success">
+        <tr>
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img [src]="products.image" [alt]="products.producto" width="50" height="50 "></td>
+            <td>{{products.producto}}</td>
+            <td>{{products.precio}}</td>
+            <td>{{products.stock}}</td>
+        </tr>
+    </tbody>
+</table>

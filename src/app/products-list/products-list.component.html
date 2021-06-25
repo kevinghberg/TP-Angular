@@ -17,8 +17,8 @@
             <td>{{product.price | currency}}</td>
             
             <td>
-                <span class="badge rounded-pill bg-primary" *ngIf="product.stock>0">{{product.auxstock}}</span>
-                <span class="badge rounded-pill bg-danger" *ngIf="product.stock==0"> SIN STOCK</span>
+                <span class="badge rounded-pill bg-primary" *ngIf="product.auxstock>0">{{product.auxstock}} </span>
+                <span class="badge rounded-pill bg-danger" *ngIf="product.auxstock==0"> SIN STOCK</span>
                 <span class="badge rounded-pill bg-info text-dark" *ngIf="product.soon==true"> SOON </span>
             </td>
             <td><button class="btn btn-outline-dark btn-sm" (click)="downQuantity(product)">-</button>

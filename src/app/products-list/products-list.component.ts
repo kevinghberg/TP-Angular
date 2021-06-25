@@ -86,8 +86,8 @@ export class ProductsListComponent implements OnInit {
     if (products.quantityInput > 0) {
       if (products.stock - products.quantityInput >= 0) {
         products.auxstock = products.stock - products.quantityInput;
-      } else alert('te pasaste');
-    } else alert('mas de 0');
+      } else alert('El stock disponible es'+' '+products.auxstock);
+    } else alert('Ingrese un numero mayor a 0');
 
   }
 

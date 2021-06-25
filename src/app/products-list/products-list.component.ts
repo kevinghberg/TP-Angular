@@ -48,7 +48,7 @@ export class ProductsListComponent implements OnInit {
   ]
 
   constructor() {
-    this.products.forEach((product => { product.auxstock = product.stock; }));
+    this.products.forEach((product=> { product.auxstock = product.stock; }));
   }
 
   ngOnInit(): void {
@@ -56,40 +56,5 @@ export class ProductsListComponent implements OnInit {
 
 
   }
-
-  downQuantity(products: Product): void {
-
-    if (products.quantityInput > 0) {
-
-      products.quantityInput--;
-
-      products.auxstock++;
-    }
-
-
-  }
-
-  upQuantity(products: Product): void {
-
-    if (products.quantityInput < products.stock && products.soon != true) {
-
-      products.quantityInput++;
-      products.auxstock--;
-    }
-  }
-
-  inputQuantityEvent(event: KeyboardEvent, product: Product) {
-    if (event.key == 'Enter') this.changeQuantityInput(product);
-  }
-
-  changeQuantityInput(products: Product) {
-    if (products.quantityInput > 0) {
-      if (products.stock - products.quantityInput >= 0) {
-        products.auxstock = products.stock - products.quantityInput;
-      } else alert('El stock disponible es'+' '+products.auxstock);
-    } else alert('Ingrese un numero mayor a 0');
-
-  }
-
 
 }

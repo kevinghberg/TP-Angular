@@ -12,7 +12,7 @@
     <tbody>
         <tr *ngFor="let product of products" [ngClass]="{'soon': product.soon==true}">
             <td><img class="img-thumbnail" [src]="product.image" [alt]="product.name" width="50" height="50 "></td>
-            
+             
             <td>{{product.name}}</td>
             <td>{{product.price | currency}}</td>
             
@@ -21,12 +21,10 @@
                 <span class="badge rounded-pill bg-danger" *ngIf="product.auxstock==0"> SIN STOCK</span>
                 <span class="badge rounded-pill bg-info text-dark" *ngIf="product.soon==true"> SOON </span>
             </td>
-            <td><button class="btn btn-outline-dark btn-sm" (click)="downQuantity(product)">-</button>
-                <input
-                 type="text" 
-                 [(ngModel)]="product.quantityInput"
-                 (keyup)="inputQuantityEvent($event,product)">
-                <button class="btn btn-outline-dark btn-sm" (click)="upQuantity(product)">+</button>
+            <td>
+                <app-input-integer [(quantityInput)]="product.auxstock" [maxStock]="product.stock" [auxstock]="product.auxstock" [soon]="product.soon">
+
+                </app-input-integer>
             </td>
         </tr>
     </tbody>

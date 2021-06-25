@@ -26,6 +26,8 @@ export class InputIntegerComponent implements OnInit {
   @Output()
   quantityInputChange: EventEmitter<number> = new EventEmitter<number>();
 
+ 
+
 
 
 
@@ -45,6 +47,9 @@ export class InputIntegerComponent implements OnInit {
 
       this.auxstock++;
 
+
+
+      
       this.quantityInputChange.emit(this.quantityInput);
     }
   }
@@ -59,8 +64,8 @@ export class InputIntegerComponent implements OnInit {
       this.quantityInputChange.emit(this.quantityInput);
     }
     else
-      if (this.quantityInput == this.auxstock)
-        alert('El stock disponible es' + ' ' + this.auxstock);
+      if (this.quantityInput == this.maxStock)
+        alert('El stock disponible es' + ' ' + this.maxStock);
   }
 
 

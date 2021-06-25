@@ -22,7 +22,7 @@
                 <span class="badge rounded-pill bg-info text-dark" *ngIf="product.soon==true"> SOON </span>
             </td>
             <td>
-                <app-input-integer [(quantityInput)]="product.auxstock" [maxStock]="product.stock" [auxstock]="product.auxstock" [soon]="product.soon">
+                <app-input-integer [(quantityInput)]="product.quantityInput" [maxStock]="product.stock" [auxstock]="product.auxstock" [soon]="product.soon">
 
                 </app-input-integer>
             </td>

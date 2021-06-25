@@ -6,14 +6,26 @@
             <th>Producto</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Compras</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><img [src]="products.image" [alt]="products.producto" width="50" height="50 "></td>
-            <td>{{products.producto}}</td>
-            <td>{{products.precio}}</td>
-            <td>{{products.stock}}</td>
+        <tr *ngFor="let product of products" [ngClass]="{'soon': product.soon==true}">
+            <td><img class="img-thumbnail" [src]="product.image" [alt]="product.name" width="50" height="50 "></td>
+            <td>{{product.name}}</td>
+            <td>{{product.price | currency}}</td>
+            <td>
+                <span class="badge rounded-pill bg-danger" *ngIf="product.stock==0"> SIN STOCK</span>
+                <span class="badge rounded-pill bg-info text-dark" *ngIf="product.soon==true"> SOON </span>
+            </td>
+            <td><button class="btn btn-outline-dark btn-sm" (click)="downQuantity(product)">-</button>
+                <input
+                 type="text" 
+                 [(ngModel)]="product.quantity"
+                 (keyup)="onChangeQuantity($event,product)">
+                {{product.quantity}}
+                <button class="btn btn-outline-dark btn-sm" (click)="upQuantity(product)">+</button>
+            </td>
         </tr>
     </tbody>
 </table>

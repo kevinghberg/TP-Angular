@@ -4,7 +4,8 @@ export interface Product {
     name: string;
     price: number;
     stock: number;
+    auxstock: number,
     soon: boolean;
-    quantity:number;
+    quantityInput:number;
 
 }

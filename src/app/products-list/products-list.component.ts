@@ -14,59 +14,82 @@ export class ProductsListComponent implements OnInit {
       name: "Gallina Ponedora",
       price: 160,
       stock: 50,
+      auxstock: 0,
       soon: false,
-      quantity: 0,
+      quantityInput: 0,
     },
     {
-      image: "assets/img/gallina.jpg",
+      image: "assets/img/maple-huevo.jpg",
       name: "Maple de Huevos",
       price: 250,
       stock: 15,
+      auxstock: 0,
       soon: false,
-      quantity: 0,
+      quantityInput: 0,
     },
     {
-      image: "assets/img/gallina.jpg",
+      image: "assets/img/alimento.jpg",
       name: "Alimento Balanceado 40kg",
       price: 1400,
       stock: 0,
+      auxstock: 0,
       soon: false,
-      quantity: 0,
+      quantityInput: 0,
     },
     {
-      image: "assets/img/gallina.jpg",
+      image: "assets/img/comedero.jpg",
       name: "Comedero",
       price: 400,
       stock: 5,
+      auxstock: 0,
       soon: true,
-      quantity: 0,
+      quantityInput: 0,
     }
   ]
-  constructor() { }
+
+  constructor() {
+    this.products.forEach((product => { product.auxstock = product.stock; }));
+  }
 
   ngOnInit(): void {
+
+
+
   }
 
   downQuantity(products: Product): void {
 
-    if(products.quantity >0)
+    if (products.quantityInput > 0) {
 
-    products.quantity--;
+      products.quantityInput--;
+
+      products.auxstock++;
+    }
+
 
   }
 
   upQuantity(products: Product): void {
 
-    if(products.quantity < products.stock && products.soon!=true)
-      
-    products.quantity++;
+    if (products.quantityInput < products.stock && products.soon != true) {
+
+      products.quantityInput++;
+      products.auxstock--;
+    }
+  }
+
+  inputQuantityEvent(event: KeyboardEvent, product: Product) {
+    if (event.key == 'Enter') this.changeQuantityInput(product);
+  }
+
+  changeQuantityInput(products: Product) {
+    if (products.quantityInput > 0) {
+      if (products.stock - products.quantityInput >= 0) {
+        products.auxstock = products.stock - products.quantityInput;
+      } else alert('te pasaste');
+    } else alert('mas de 0');
 
   }
 
-  onChangeQuantity(event , products: Product):void{
-
-    console.log(event.target);
-
-  }
 
 }

@@ -39,7 +39,7 @@ export class ProductsListComponent implements OnInit {
     {
       image: "assets/img/comedero.jpg",
       name: "Comedero",
-      price: 400,
+      price: 400, 
       stock: 5,
       auxstock: 0,
       soon: true,

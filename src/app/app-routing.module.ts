@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GranjaAboutComponent } from './granja-about/granja-about.component';
-import { ProductsListComponent } from './products-list/products-list.component';
+import { GranjaProductsComponent } from './granja-products/granja-products.component';
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
 
   {
     path: 'productos',
-    component: ProductsListComponent
+    component: GranjaProductsComponent
   },
 
   {

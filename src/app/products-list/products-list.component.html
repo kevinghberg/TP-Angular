@@ -19,12 +19,13 @@
             <td>
                 <span class="badge rounded-pill bg-primary" *ngIf="product.auxstock>0">{{product.auxstock}} </span>
                 <span class="badge rounded-pill bg-danger" *ngIf="product.auxstock==0"> SIN STOCK</span>
-                <span class="badge rounded-pill bg-success text-dark" *ngIf="product.soon==true"> SOON </span>
+                <span class="badge rounded-pill bg-dark" *ngIf="product.soon==true"> SOON </span>
             </td>
             <td>
                 <app-input-integer [(quantityInput)]="product.quantityInput" [maxStock]="product.stock" [(auxstock)]="product.auxstock" [soon]="product.soon">
 
                 </app-input-integer>
+                <button class="btn btn-success" (click)="addToCart(product)">Comprar</button>
             </td>
         </tr>
     </tbody>

@@ -1,4 +1,5 @@
-export interface Product {
+export interface Product 
+    {
 
     image: string;
     name: string;

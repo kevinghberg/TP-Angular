@@ -1,4 +1,11 @@
 <h1>Checkout 🛒</h1>
 
+<ul>
+    <li *ngFor="let product of cartList | async">
+        {{product.name}}: {{product.quantityInput}}
+    </li>
+
+</ul>
+
 
 

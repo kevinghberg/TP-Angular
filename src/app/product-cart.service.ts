@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable} from 'rxjs';
 import { Product } from './products-list/Product';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductCartService {
 
-  cartList:Product[]=[];
+  private _cartList: Product[] = [];
+
+  cartList: BehaviorSubject<Product[]>=new BehaviorSubject(this._cartList);
 
   
   
@@ -16,17 +20,23 @@ export class ProductCartService {
  
   
   addToCart(products: Product) {
+
   
-  let item:Product=this.cartList.find((v1)=>v1.name==products.name);
+  
+  let item: Product | undefined  = this._cartList.find((v1)=>v1.name==products.name);
 
     if(!item){
+      
+      this._cartList.push({ ... products});
 
-      this.cartList.push({ ... products});
+    }else
 
-    }else{
-      item.quantityInput+= products.quantityInput;
+    {
+     item.quantityInput+= products.quantityInput;
     }
    console.log(this.cartList);
+
+   this.cartList.next(this._cartList);
   }
 
 }

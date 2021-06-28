@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { GranjaAboutComponent } from './granja-about/granja-about.component';
 import { GranjaProductsComponent } from './granja-products/granja-products.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,8 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

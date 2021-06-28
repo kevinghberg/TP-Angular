@@ -10,7 +10,11 @@ import { Product } from './Product';
 })
 export class ProductsListComponent implements OnInit {
 
-  products: Product[] = [];
+  products: Product[] = [
+
+
+    
+  ];
 
   
 

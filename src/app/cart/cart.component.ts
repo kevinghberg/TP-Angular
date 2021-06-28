@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ProductCartService } from '../product-cart.service';
 import { Product } from '../products-list/Product';
 
@@ -12,15 +12,18 @@ export class CartComponent implements OnInit {
 
 
 
-  cartList:Observable<Product[]> | undefined;
+  cartList$: Observable<Product[]>;
 
 
 
   constructor(private productCartService:ProductCartService) {
 
-    this.cartList = productCartService.cartList.asObservable();
 
+    this.cartList$=this.productCartService.cartList.asObservable();
 
+  
+
+    
 
    }
 
@@ -28,3 +31,4 @@ export class CartComponent implements OnInit {
   }
 
 }
+

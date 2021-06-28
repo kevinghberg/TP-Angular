@@ -12,6 +12,7 @@ export class ProductCartService {
 
   cartList: BehaviorSubject<Product[]>=new BehaviorSubject(this._cartList);
 
+  //public cartL:Observable<Product[]> = this.cartList.asObservable();
   
   
   constructor( ) { }

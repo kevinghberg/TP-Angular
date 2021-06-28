@@ -11,15 +11,14 @@ import { Product } from './Product';
 export class ProductsListComponent implements OnInit {
 
   products: Product[] = [
-
-
     
-  ];
+   ];
 
   
 
   constructor( private productsCartService:ProductCartService, 
                private productDataService: ProductDataService)  {
+
     this.products.forEach((product=> { product.auxstock = product.stock; }));
   
   }

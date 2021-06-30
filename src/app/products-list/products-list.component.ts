@@ -12,14 +12,15 @@ export class ProductsListComponent implements OnInit {
 
   products: Product[] = [
     
-   ];
+  ];
 
   
 
   constructor( private productsCartService:ProductCartService, 
                private productDataService: ProductDataService)  {
 
-    this.products.forEach((product=> { product.auxstock = product.stock; }));
+                
+    
   
   }
 
@@ -36,7 +37,9 @@ export class ProductsListComponent implements OnInit {
     
 
     this.productsCartService.addToCart(products);
-    products.auxstock -= products.quantityInput;
+
+    products.stock -= products.quantityInput;
+
     products.quantityInput=0;
 
   }

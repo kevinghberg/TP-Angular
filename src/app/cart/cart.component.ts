@@ -21,12 +21,23 @@ export class CartComponent implements OnInit {
 
     this.cartList$=this.productCartService.cartList.asObservable();
 
+    
+
   
 
    }
 
   ngOnInit(): void {
+
   }
 
+//buy(){
+
+  //alert("comprar finalizada TOTAL:"+this.productCartService.total(this.cartList$);/
+
 }
+
+
+
+
 

@@ -6,6 +6,8 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   templateUrl: './input-integer.component.html',
   styleUrls: ['./input-integer.component.scss']
 })
+
+
 export class InputIntegerComponent implements OnInit {
 
 
@@ -18,7 +20,9 @@ export class InputIntegerComponent implements OnInit {
   maxStock!: number;
 
   @Input()
-  auxstock!: number;
+  stock!: number;
+
+
 
   @Input()
   soon!: boolean;
@@ -27,7 +31,7 @@ export class InputIntegerComponent implements OnInit {
   quantityInputChange: EventEmitter<number> = new EventEmitter<number>();
 
   @Output()
-  auxstockChange: EventEmitter<number> = new EventEmitter<number>();
+  stockChange: EventEmitter<number> = new EventEmitter<number>();
 
 
 
@@ -54,29 +58,34 @@ export class InputIntegerComponent implements OnInit {
 
       this.quantityInput--;
 
-      this.auxstock++;
-      this.auxstockChange.emit(this.auxstock);
+      this.stock++;
+      this.stockChange.emit(this.stock);
       
       this.quantityInputChange.emit(this.quantityInput);
     }
   }
 
 
-  upQuantity(): void {
+ upQuantity() {
 
-    if (this.quantityInput < this.maxStock && this.soon != true) {
+    if (this.quantityInput < this.maxStock && this.soon != true ) {
 
       this.quantityInput++;
       
-      this.auxstock--;
+      this.stock--;
 
-      console.log(this.auxstock)
-      this.auxstockChange.emit(this.auxstock);
+      console.log(this.stock)
+
+  
+      this.stockChange.emit(this.stock);
       this.quantityInputChange.emit(this.quantityInput);
     }
     else
       if (this.quantityInput == this.maxStock)
         alert('El stock disponible es' + ' ' + this.maxStock);
+       
+  
+
   }
 
   inputQuantityEvent(event: KeyboardEvent,) {
@@ -86,9 +95,9 @@ export class InputIntegerComponent implements OnInit {
   changeQuantityInput() {
     if (this.quantityInput > 0) {
       if (this.maxStock - this.quantityInput >= 0) {
-        this.auxstock = this.maxStock - this.quantityInput;
+        this.stock = this.maxStock - this.quantityInput;
         this.quantityInputChange.emit(this.quantityInput);
-      } else alert('El stock disponible es' + ' ' + this.auxstock);
+      } else alert('El stock disponible es' + ' ' + this.stock);
     } else alert('Ingrese un numero mayor a 0');
 
   }

@@ -1,12 +1,15 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable} from 'rxjs';
 import { Product } from './products-list/Product';
+import { ProductsListComponent } from './products-list/products-list.component';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductCartService {
+  
 
   private _cartList: Product[] = [];
 
@@ -33,14 +36,25 @@ export class ProductCartService {
     }else
 
     {
-     item.quantityInput+= products.quantityInput;
+     item.quantityInput += products.quantityInput;
     }
-   console.log(this.cartList);
+
 
    this.cartList.next(this._cartList);
   }
 
-}
+
+  //total(products:Product){
+
+  //  let item:Product[]=this._cartList;
+
+    //let total =  item.quantityInput*products.price;
+
+    //return total;
+  //}
+  
+  }
+
 
   
  

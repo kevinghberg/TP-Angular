@@ -35,7 +35,7 @@ export class ProductsListComponent implements OnInit {
   addToCart(products:Product): void{
 
     
-
+if(products.quantityInput>0){
     this.productsCartService.addToCart(products);
 
     products.stock -= products.quantityInput;
@@ -44,4 +44,5 @@ export class ProductsListComponent implements OnInit {
 
   }
 
+}
 }

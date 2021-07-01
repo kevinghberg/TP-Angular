@@ -44,14 +44,7 @@ export class ProductCartService {
   }
 
 
-  //total(products:Product){
-
-  //  let item:Product[]=this._cartList;
-
-    //let total =  item.quantityInput*products.price;
-
-    //return total;
-  //}
+  
   
   }
 

@@ -23,7 +23,6 @@ export class InputIntegerComponent implements OnInit {
   stock!: number;
 
 
-
   @Input()
   soon!: boolean;
 
@@ -32,15 +31,6 @@ export class InputIntegerComponent implements OnInit {
 
   @Output()
   stockChange: EventEmitter<number> = new EventEmitter<number>();
-
-
-
-
-
-
-
- 
-
 
 
 

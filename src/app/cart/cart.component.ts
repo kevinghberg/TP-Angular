@@ -25,13 +25,12 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
 //buy(){
 
-  //alert("comprar finalizada TOTAL:"+this.productCartService.total(this.cartList$);
+ // alert("comprar finalizada TOTAL:"+this.productCartService.total(this.cartList$);
 
+//}
 }
-
 
 
 

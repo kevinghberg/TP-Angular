@@ -11,9 +11,7 @@ import { Product } from '../products-list/Product';
 export class CartComponent implements OnInit {
 
 
-
   cartList$: Observable<Product[]>;
-
 
 
   constructor(private productCartService:ProductCartService) {
@@ -21,9 +19,6 @@ export class CartComponent implements OnInit {
 
     this.cartList$=this.productCartService.cartList.asObservable();
 
-    
-
-  
 
    }
 
@@ -33,7 +28,7 @@ export class CartComponent implements OnInit {
 
 //buy(){
 
-  //alert("comprar finalizada TOTAL:"+this.productCartService.total(this.cartList$);/
+  //alert("comprar finalizada TOTAL:"+this.productCartService.total(this.cartList$);
 
 }
 
